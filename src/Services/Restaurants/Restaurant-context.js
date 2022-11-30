@@ -25,7 +25,7 @@ export const RestaurantsContextProvider = ({ children }) => {
         .then(results => {
           setIsLoading(false);
           setRestaurants(results);
-        })
+        }) //fetches restaurant details based on input location
         .catch((err) => {
           setIsLoading(false);
           setError(err);
@@ -37,7 +37,7 @@ export const RestaurantsContextProvider = ({ children }) => {
     if (location) {
       const locationString = `${location.lat},${location.lng}`;
       retrieveRestaurants(locationString);
-      console.log("heyyyyyyyy"+locationString)
+      console.log(locationString)
     }
   }, [location]);
 
