@@ -12,7 +12,7 @@ export const Search = () => {
     },[keyword])  // this way, when the search component in the map screen updates the keyword, the useEffect updates the keyword locally to the value of the keyword from the context API
 
   return (
-    <View style={{ padding: 10, bottom:5}}>
+    <View style={{ padding: 10, top:10}}>
       <Searchbar
         placeholder="Search for a location"
         value={searchKeyword}

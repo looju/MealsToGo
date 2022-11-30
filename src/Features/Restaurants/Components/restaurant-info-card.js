@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "#FFFFFF",
     margin: 10,
+    marginLeft:20
   },
   cardcover: {
     backgroundColor: "#FFFFFF",
