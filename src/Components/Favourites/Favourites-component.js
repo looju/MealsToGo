@@ -3,13 +3,11 @@ import styled from "styled-components/native";
 import { AntDesign } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
 
-import {FavouritesContext} from '../../Services/Favourites/Favourites-context'
-
-
+import { FavouritesContext } from "../../Services/Favourites/Favourites-context";
 
 export const FavouritesComponent = ({ restaurant }) => {
-  const { favourites, addToFavourites, removeFromFavourites } = useContext(FavouritesContext);
-console.log(favourites.length)
+  const { favourites, addToFavourites, removeFromFavourites } =useContext(FavouritesContext);
+  console.log(favourites.length);
   const isFavourite = favourites.find((r) => r.placeId === restaurant.placeId);
 
   return (
@@ -20,10 +18,10 @@ console.log(favourites.length)
           : removeFromFavourites(restaurant)
       }
       style={{
-        zIndex:9,
-        right:25,
-        top:25,
-        position:"absolute"
+        zIndex: 9,
+        right: 25,
+        top: 25,
+        position: "absolute",
       }}
     >
       <AntDesign

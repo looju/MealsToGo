@@ -11,7 +11,7 @@ const RestaurantStack=createStackNavigator()
 export const RestaurantNavigator = () => {
     return (
        <RestaurantStack.Navigator screenOptions={{headerShown:false}}>
-        <RestaurantStack.Screen name="Restaurant" component={Restaurant} />
+        <RestaurantStack.Screen name="RestaurantScreen" component={Restaurant} />
         <RestaurantStack.Screen name="RestaurantDetail" component={RestaurantDetails} options={{...TransitionPresets.RevealFromBottomAndroid, ...TransitionPresets.ModalSlideFromBottomIOS}} />
         </RestaurantStack.Navigator>
     );
