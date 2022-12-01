@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
   },
   imageView: {
     flex: 0.8,
-    backgroundColor: "#000",
   },
   textView: {
     flex: 0.2,

@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react";
-import { View, StyleSheet } from "react-native";
 
 export const FavouritesContext = createContext();
 
@@ -7,13 +6,14 @@ export const FavouritesContextProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);
 
   const add = (restaurant) => {
-    setFavourites([...favourites, restaurant]); //the add function is responsible for getting the values of newly added restaurants and adding it to already existing favourites
+    setFavourites([...favourites, restaurant]);
   };
 
   const remove = (restaurant) => {
-    const newFavourites = restaurant.filter((x) => {
-      x.placeId !== restaurant.placeId;
-    }); // this returns an array of values that do not have the restaurant's placeId
+    const newFavourites = favourites.filter(
+      (x) => x.placeId !== restaurant.placeId
+    );
+
     setFavourites(newFavourites);
   };
   return (
@@ -28,5 +28,3 @@ export const FavouritesContextProvider = ({ children }) => {
     </FavouritesContext.Provider>
   );
 };
-
-const styles = StyleSheet.create({});

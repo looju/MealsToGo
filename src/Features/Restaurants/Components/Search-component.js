@@ -3,7 +3,7 @@ import { Searchbar} from "react-native-paper";
 import {View} from 'react-native'
 import { LocationContext } from "../../../Services/Location/Location-context";
 
-export const Search = () => {
+export const Search = ({isFavouritesToggle, onFavouritesToggle}) => {
   const { keyword, search } = useContext(LocationContext);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
 
@@ -22,7 +22,8 @@ export const Search = () => {
         onChangeText={(text) => {
           setSearchKeyword(text);
         }}
-        icon="archive-search-outline"
+        icon={isFavouritesToggle?"heart":"heart-outline"}
+        onIconPress={onFavouritesToggle}
       />
     </View>
   );
