@@ -1,12 +1,15 @@
 import React from "react";
 import { View, StyleSheet, Text, Image } from "react-native";
+import { WebView } from "react-native-webview";
 
 export const MapCallout = ({ restaurant }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.imageView}>
-        <Image source={{ uri: restaurant.photos[0] }} style={{height:50,width:50}}/>
-      </View>
+      <WebView
+        source={{ uri: restaurant.photos[0] }}
+        style={styles.imageView}
+      />
+
       <View style={styles.textView}>
         <Text>{restaurant.name}</Text>
       </View>
@@ -22,9 +25,10 @@ const styles = StyleSheet.create({
   },
   imageView: {
     flex: 0.8,
+    backgroundColor: "#000",
   },
-  textView:{
-    flex:0.2,
-    alignItems: 'center',
-  }
+  textView: {
+    flex: 0.2,
+    alignItems: "center",
+  },
 });

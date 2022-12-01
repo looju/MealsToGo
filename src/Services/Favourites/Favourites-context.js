@@ -21,12 +21,12 @@ export const FavouritesContextProvider = ({ children }) => {
       value={{
         favourites,
         addToFavourites: add,
-        removeFromFavourites: remove 
-        }}
+        removeFromFavourites: remove,
+      }}
     >
       {children}
     </FavouritesContext.Provider>
-  ); 
+  );
 };
 
 const styles = StyleSheet.create({});
