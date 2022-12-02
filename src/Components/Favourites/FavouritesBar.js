@@ -7,12 +7,13 @@ import {
   Text,
 } from "react-native";
 import { MapCallout } from "../../Features/Map/Components/Map-callout";
-import { MacondoSwashCaps_400Regular, useFonts } from "@expo-google-fonts/dev";
+import {  useFonts } from "@expo-google-fonts/dev";
 
 export const FavouritesBar = ({ favourites, navigation }) => {
   let [fontsLoaded] = useFonts({
-    MacondoSwashCaps_400Regular,
+   Tangerine:require('../../../assets/fonts/Tangerine-Regular.ttf')
   });
+
   if (fontsLoaded) {
     return (
       <View style={styles.container}>
@@ -21,8 +22,8 @@ export const FavouritesBar = ({ favourites, navigation }) => {
             key = restaurant.name;
             return (
               <View key={key} style={{ marginRight: 10 }}>
-                <View style={{ paddingBottom: 5 }}>
-                  <Text style={{ fontFamily: " MacondoSwashCaps_400Regular" }}>
+                <View style={{ paddingBottom: 5, justifyContent:"center" }}>
+                  <Text style={{ fontFamily:'Tangerine' }}>
                     My favourites
                   </Text>
                 </View>
