@@ -43,6 +43,7 @@ export const FavouritesContextProvider = ({ children }) => {
   useEffect(() => {
     saveFavourites(favourites);
   }, [favourites]);
+  
   return (
     <FavouritesContext.Provider
       value={{

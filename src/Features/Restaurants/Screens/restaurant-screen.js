@@ -12,6 +12,7 @@ export const Restaurant = ({ navigation }) => {
   const [isToggled,setIsToggled]=useState(false)
   const {favourites}=useContext(FavouritesContext)
   
+  
   return (
     <SafeAreaView style={{marginTop:10}}>
       {isLoading && (
