@@ -31,6 +31,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         error,
         user,
         onLogin,
+        isAuthenticated: !!user
       }}
     >
       {children}

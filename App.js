@@ -12,8 +12,9 @@ import FlashMessage from "react-native-flash-message";
 import { RestaurantsContextProvider } from "./src/Services/Restaurants/Restaurant-context";
 import { LocationContextProvider } from "./src/Services/Location/Location-context";
 import { FavouritesContextProvider } from "./src/Services/Favourites/Favourites-context";
-import { Navigation } from "./src/Infrastructure/Navigation/App-navigator";
 import { AuthenticationContextProvider } from "./src/Services/Authentication/Authentication-context";
+import { Navigation } from "./src/Infrastructure/Navigation/App-navigator";
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCRXDng_mIAM1lS832dVR5gXByrzY27pME",
