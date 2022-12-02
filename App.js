@@ -6,14 +6,12 @@ import {
   Oswald_400Regular,
   Lato_400Regular,
   Griffy_400Regular,
+  Tangerine_400Regular
 } from "@expo-google-fonts/dev";
+import FlashMessage from "react-native-flash-message";
 import { RestaurantsContextProvider } from "./src/Services/Restaurants/Restaurant-context";
 import { LocationContextProvider } from "./src/Services/Location/Location-context";
 import { FavouritesContextProvider } from "./src/Services/Favourites/Favourites-context";
-import {
-  locationRequest,
-  locationTransform,
-} from "./src/Services/Location/Location-service";
 import { Navigation } from "./src/Infrastructure/Navigation/App-navigator";
 
 const { ThemeProvider } = createTheming({ colors });
@@ -23,6 +21,7 @@ export default function App() {
     Oswald_400Regular,
     Lato_400Regular,
     Griffy_400Regular,
+    Tangerine_400Regular,
   });
 
   if (!fontsLoaded) {
@@ -34,6 +33,7 @@ export default function App() {
           <LocationContextProvider>
             <RestaurantsContextProvider>
               <Navigation />
+              <FlashMessage position="bottom"/>
             </RestaurantsContextProvider>
           </LocationContextProvider>
         </FavouritesContextProvider>

@@ -110,7 +110,8 @@ const styles = StyleSheet.create({
   },
   address: {
     fontSize: 15,
-    fontWeight:"600"
+    fontWeight:"600",
+    fontFamily: "Griffy_400Regular",
   },
   ratingview: {
     flexDirection: "row",
