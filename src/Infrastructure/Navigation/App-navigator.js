@@ -8,21 +8,6 @@ import { MapScreen } from "../../Features/Map/Screens/Map-screen";
 
 const Tab = createBottomTabNavigator();
 
-const Map = () => {
-  return (
-    <View
-      style={{
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "row",
-        flex: 1,
-      }}
-    >
-      <Text>Map</Text>
-    </View>
-  );
-};
-
 const Settings = () => {
   return (
     <View
@@ -38,7 +23,7 @@ const Settings = () => {
   );
 };
 
-export const Navigation = () => {
+export const AppNavigation = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -75,7 +60,7 @@ export const Navigation = () => {
         <Tab.Screen name="Map" component={MapScreen} />
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
-    </NavigationContainer>
+      </NavigationContainer>
   );
 };
 

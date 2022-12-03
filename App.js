@@ -13,7 +13,9 @@ import { RestaurantsContextProvider } from "./src/Services/Restaurants/Restauran
 import { LocationContextProvider } from "./src/Services/Location/Location-context";
 import { FavouritesContextProvider } from "./src/Services/Favourites/Favourites-context";
 import { AuthenticationContextProvider } from "./src/Services/Authentication/Authentication-context";
-import { Navigation } from "./src/Infrastructure/Navigation/App-navigator";
+import { Navigation } from "./src/Infrastructure/Navigation/index";
+import { AccountNavigation } from "./src/Infrastructure/Navigation/Account-navigator";
+import { AppNavigation } from "./src/Infrastructure/Navigation/App-navigator";
 
 
 export const firebaseConfig = {
@@ -64,7 +66,7 @@ export default function App() {
           <FavouritesContextProvider>
             <LocationContextProvider>
               <RestaurantsContextProvider>
-                <Navigation />
+                <Navigation/>
                 <FlashMessage position="bottom" />
               </RestaurantsContextProvider>
             </LocationContextProvider>
