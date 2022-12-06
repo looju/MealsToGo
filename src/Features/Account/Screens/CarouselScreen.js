@@ -8,7 +8,7 @@ export const CarouselScreen = ({ navigation }) => {
   const slides = [
     {
       key: "one",
-      title: "         MealsToGo",
+      title: "MealsToGo",
       text: "Your favourite food delivery companion",
       image: require("../../../../assets/bike.jpg"),
       backgroundColor: "#000",
@@ -16,14 +16,14 @@ export const CarouselScreen = ({ navigation }) => {
     {
       key: "two",
       title: "Enjoy a wide variety of meals!",
-      text: "                    From anywhere, anytime",
+      text: "From anywhere, anytime",
       image: require("../../../../assets/food.jpg"),
       backgroundColor: "#000",
     },
     {
       key: "three",
       title: "Multiple payment options",
-      text: "        Smooth and seamless payment for you",
+      text: "Smooth and seamless payment options for you",
       image: require("../../../../assets/cash.jpg"),
       backgroundColor: "#000",
     },
@@ -45,8 +45,8 @@ export const CarouselScreen = ({ navigation }) => {
           <Text
             style={{
               color: "#fff",
-              fontWeight: "600",
-              fontSize: 15
+              fontWeight: "bold",
+              fontSize: 20
             }}
           >
             {item.title}
@@ -108,12 +108,10 @@ const styles = StyleSheet.create({
     bottom: 450,
     width: 300,
     heigth: 100,
-    marginLeft: "30%",
   },
   text: {
     width: 400,
     maxHeight: 200,
-    left: 60,
     paddingTop: 10,
     marginTop: 10,
   },
