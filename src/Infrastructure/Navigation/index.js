@@ -6,6 +6,6 @@ import {AccountNavigation} from './Account-navigator'
 export const Navigation=()=>{
  const {isAuthenticated}=useContext(AuthenticationContext)
  
- return !isAuthenticated? <AppNavigation/>:<AccountNavigation/>
+ return isAuthenticated? <AppNavigation/>:<AccountNavigation/>
 
 }
