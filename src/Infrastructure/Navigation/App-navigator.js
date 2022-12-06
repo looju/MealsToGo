@@ -52,11 +52,12 @@ export const AppNavigation = () => {
             );
           },
           tabBarActiveTintColor: "tomato",
-          tabBarInactiveTintColor: "gray",
+          tabBarInactiveTintColor: "#fff",
           headerShown: false,
+          tabBarStyle: { backgroundColor: '#000' },
         })}
       >
-        <Tab.Screen name="Restaurant" component={RestaurantNavigator} />
+        <Tab.Screen name="Restaurant" component={RestaurantNavigator}/>
         <Tab.Screen name="Map" component={MapScreen} />
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
