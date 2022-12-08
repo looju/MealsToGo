@@ -11,7 +11,7 @@ export const AccountScreen = ({ navigation }) => {
       style={styles.container}
     >
       <View style={styles.textView}>
-        <TypeWriter typing={1} minDelay={300} initialDelay={3000} style={{color:"#fff", fontSize:30, fontFamily:"Griffy_400Regular"}}>MealsToGo</TypeWriter>
+        <TypeWriter typing={1} minDelay={100} initialDelay={1500} style={{color:"#fff", fontSize:30, fontFamily:"Griffy_400Regular"}}>MealsToGo</TypeWriter>
       </View>
 
       <View style={styles.buttonContainer}>

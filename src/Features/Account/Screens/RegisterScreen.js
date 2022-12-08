@@ -4,11 +4,12 @@ import { ButtonComponents } from "../Components/ButtonComponents";
 import { TextInput } from "react-native-paper";
 import { AuthenticationContext } from "../../../Services/Authentication/Authentication-context";
 
+
 export const RegisterScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
-  const { onRegister, error } = useContext(AuthenticationContext);
+  const { onRegister, error,promptAsync,getUserData,request,accessToken } = useContext(AuthenticationContext);
   return (
     <ImageBackground
       resizeMode="cover"
@@ -54,6 +55,18 @@ export const RegisterScreen = () => {
           name={"Register"}
           icon={"account-lock-open-outline"}
           onPress={() => onRegister(email, password,repeatedPassword)}
+        />
+      </View>
+      <View style={{width:400, height:50, marginTop:20, alignItems:"center", justifyContent:"center"}}>
+      <Text style={{color:"#fff", fontWeight:"500"}}>OR REGISTER WITH </Text>
+      </View>
+      <View>
+      <ButtonComponents
+          icon={"google"}
+          onPress={() => {
+            accessToken?getUserData:promptAsync()
+            }}
+            disabled={!request}
         />
       </View>
     </ImageBackground>

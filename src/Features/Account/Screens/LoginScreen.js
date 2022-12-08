@@ -45,15 +45,6 @@ export const LoginScreen = () => {
           onPress={() => onLogin(email, password)}
         />
       </View>
-      <View style={{width:400, height:50, marginTop:20, alignItems:"center", justifyContent:"center"}}>
-      <Text style={{color:"#fff", fontWeight:"500"}}>OR REGISTER WITH </Text>
-      </View>
-      <View>
-      <ButtonComponents
-          icon={"google"}
-          onPress={() => onLogin(email, password)}
-        />
-      </View>
     </ImageBackground>
   );
 };

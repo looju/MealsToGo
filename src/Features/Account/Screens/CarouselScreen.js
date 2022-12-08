@@ -3,37 +3,37 @@ import { StyleSheet, View, Text, Image } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import AppIntroSlider from "react-native-app-intro-slider";
 
-
 export const CarouselScreen = ({ navigation }) => {
   const slides = [
     {
       key: "one",
       title: "MealsToGo",
       text: "Your favourite food delivery companion",
-      image: require("../../../../assets/bike.jpg"),
+      image: require("../../../../assets/bike2.jpg"),
       backgroundColor: "#000",
     },
     {
       key: "two",
       title: "Enjoy a wide variety of meals!",
       text: "From anywhere, anytime",
-      image: require("../../../../assets/food.jpg"),
-      backgroundColor: "#000",
+      image: require("../../../../assets/myfood.jpg"),
+      backgroundColor: "#964B00",
     },
     {
       key: "three",
       title: "Multiple payment options",
       text: "Smooth and seamless payment options for you",
       image: require("../../../../assets/cash.jpg"),
-      backgroundColor: "#000",
+      backgroundColor: "#808080",
     },
   ];
 
-
-
   const renderItem = ({ item }) => {
     return (
-      <View style={styles.container}>
+      <View style={[
+        styles.container,
+        { backgroundColor: item.backgroundColor }
+        ]}>
         <View style={styles.image}>
           <Image
             source={item.image}
@@ -46,7 +46,7 @@ export const CarouselScreen = ({ navigation }) => {
             style={{
               color: "#fff",
               fontWeight: "bold",
-              fontSize: 20
+              fontSize: 20,
             }}
           >
             {item.title}
@@ -79,14 +79,16 @@ export const CarouselScreen = ({ navigation }) => {
       </View>
     );
   };
-  
+
   return (
     <AppIntroSlider
       renderItem={renderItem}
       data={slides}
       onDone={() => navigation.navigate("Main")}
+      onSkip={() => navigation.navigate("Main")}
       renderNextButton={renderNextButton}
       renderDoneButton={renderDoneButton}
+      showSkipButton
     />
   );
 };
@@ -101,8 +103,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   container: {
-    flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.9)",
+    flex: 1
   },
   title: {
     bottom: 450,
