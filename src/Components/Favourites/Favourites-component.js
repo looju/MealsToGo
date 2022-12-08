@@ -8,7 +8,6 @@ import { FavouritesContext } from "../../Services/Favourites/Favourites-context"
 export const FavouritesComponent = ({ restaurant }) => {
   const { favourites, addToFavourites, removeFromFavourites } =
   useContext(FavouritesContext);
-  const [showAlert, setShowAlert] = useState(false);
   console.log(favourites.length);
   const isFavourite = favourites.find((r) => r.placeId === restaurant.placeId);
 

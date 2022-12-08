@@ -128,6 +128,7 @@ export const AuthenticationContextProvider = ({ children }) => {
         promptAsync,
         getUserData,
         request,
+        onLogOut,
         accessToken,
         isAuthenticated: !!user,
       }}

@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { ScrollView, StyleSheet} from "react-native";
+import { ScrollView} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { RestaurantInfoCard } from "../Components/restaurant-info-card";
 import { List } from 'react-native-paper';
@@ -58,4 +58,3 @@ export const RestaurantDetails = ({ route }) => {
   );
 };
 
-const styles = StyleSheet.create({});

@@ -1,30 +1,16 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, SafeAreaView, Platform } from "react-native";
+import React from "react";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { RestaurantNavigator } from "./Restaurant-navigator";
 import { MapScreen } from "../../Features/Map/Screens/Map-screen";
+import { SettingsNavigator } from "./SettingsNavigator";
 import { RestaurantsContextProvider } from "../../Services/Restaurants/Restaurant-context";
 import { LocationContextProvider } from "../../Services/Location/Location-context";
 import { FavouritesContextProvider } from "../../Services/Favourites/Favourites-context";
 
 const Tab = createBottomTabNavigator();
-
-const Settings = () => {
-  return (
-    <View
-      style={{
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "row",
-        flex: 1,
-      }}
-    >
-      <Text>Settings</Text>
-    </View>
-  );
-};
 
 export const AppNavigation = () => {
   return (
@@ -65,7 +51,7 @@ export const AppNavigation = () => {
             >
               <Tab.Screen name="Restaurant" component={RestaurantNavigator} />
               <Tab.Screen name="Map" component={MapScreen} />
-              <Tab.Screen name="Settings" component={Settings} />
+              <Tab.Screen name="Settings" component={SettingsNavigator} />
             </Tab.Navigator>
           </RestaurantsContextProvider>
         </LocationContextProvider>
