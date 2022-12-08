@@ -17,8 +17,7 @@ export const FavouritesComponent = ({ restaurant }) => {
       onPress={() => {
         !isFavourite
           ? addToFavourites(restaurant)
-          : removeFromFavourites(restaurant),
-          setShowAlert(true);
+          : removeFromFavourites(restaurant)
       }}
       style={{
         zIndex: 9,
@@ -32,7 +31,7 @@ export const FavouritesComponent = ({ restaurant }) => {
         size={24}
         color={isFavourite ? "red" : "white"}
       />
-        {showAlert&&(
+        {!isFavourite&&(
         showMessage({
           message: "Success",
           description: "Added to favorites",

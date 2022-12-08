@@ -18,7 +18,7 @@ export const FavouritesBar = ({ favourites, navigation }) => {
           return (
             <View key={key} style={{ marginRight: 10 }}>
               <View style={{ paddingBottom: 5,   alignItems: 'center',width:400 }}>
-                <Text style={{ fontFamily: "Tangerine_400Regular", fontSize:25}}>My favourites</Text>
+                <Text style={{ fontFamily: "Tangerine_400Regular", fontSize:25, color:"#fff"}}>My favourites</Text>
               </View>
               <TouchableOpacity
                 onPress={() => {

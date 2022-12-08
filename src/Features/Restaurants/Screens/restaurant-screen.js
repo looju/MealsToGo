@@ -16,7 +16,7 @@ export const Restaurant = ({ navigation }) => {
   return (
     <SafeAreaView style={{ backgroundColor:"rgba(0,0,0,0.8)"}}>
       {isLoading && (
-        <View style={{ justifyContent: "center", top: 400, backgroundColor:"rgba(0,0,0,0.8)" }}>
+        <View style={{ justifyContent: "center", top: 400, backgroundColor:"#808080" }}>
           <ActivityIndicator size={30} animating={true} color="blue" />
         </View>
       )}
