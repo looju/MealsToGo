@@ -25,15 +25,15 @@ export const AppNavigation = () => {
                   if (route.name === "Restaurant") {
                     iconName = "food-fork-drink";
                     size = focused ? 25 : 20;
-                    color = focused ? "red" : "grey";
+                    color = focused ? "#A020F0" : "grey";
                   } else if (route.name === "Map") {
                     iconName = "map-legend";
                     size = focused ? 25 : 20;
-                    color = focused ? "red" : "grey";
+                    color = focused ? "#A020F0" : "grey";
                   } else if (route.name === "Settings") {
                     iconName = "cog-outline";
                     size = focused ? 25 : 20;
-                    color = focused ? "red" : "grey";
+                    color = focused ? "#A020F0" : "grey";
                   }
                   return (
                     <MaterialCommunityIcons
@@ -46,10 +46,10 @@ export const AppNavigation = () => {
                 tabBarActiveTintColor: "tomato",
                 tabBarInactiveTintColor: "#fff",
                 headerShown: false,
-                tabBarStyle: { backgroundColor: "#000" },
+                tabBarStyle: { backgroundColor: "#000" }
               })}
             >
-              <Tab.Screen name="Restaurant" component={RestaurantNavigator} />
+              <Tab.Screen name="Restaurant" component={RestaurantNavigator}/>
               <Tab.Screen name="Map" component={MapScreen} />
               <Tab.Screen name="Settings" component={SettingsNavigator} />
             </Tab.Navigator>

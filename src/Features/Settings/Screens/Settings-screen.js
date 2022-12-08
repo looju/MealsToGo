@@ -1,22 +1,28 @@
 import React, { useContext } from "react";
-import { List } from "react-native-paper";
+import { List, Avatar } from "react-native-paper";
 import { View, StyleSheet, SafeAreaView, Text } from "react-native";
 import { AuthenticationContext } from "../../../Services/Authentication/Authentication-context";
 
 
 export const SettingsScreen = ({ navigation,route }) => {
-  const { onLogOut } = useContext(AuthenticationContext);
+  const { onLogOut,user } = useContext(AuthenticationContext);
 
   return (
     <SafeAreaView style={styles.container}>
+        <View style={styles.avatarView}>
+        <Avatar.Icon size={200} icon="human-handsdown"/>
+        <View style={styles.emailView}>
+        <Text>Email@email.com</Text>
+        </View>
+       
+        </View>
       <View>
         <List.Section>
           <List.Item
             title="Favourites"
             description="View your favourite restaurants"
             left={() => <List.Icon icon="heart" color="#A020F0"/>}
-            onPress={() => {
-            }}
+            onPress={() => navigation.navigate("settingsFavourites")}
             style={{}}
             titleStyle={{fontSize:18, fontFamily:"Oswald_400Regular"}}
           />
@@ -39,4 +45,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
+  avatarView:{
+    marginTop:40,
+    marginBottom:20,
+    justifyContent:"center",
+    alignItems: 'center',
+  },
+  emailView:{
+    paddingTop:10
+  }
 });

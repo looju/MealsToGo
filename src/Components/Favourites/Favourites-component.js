@@ -28,14 +28,15 @@ export const FavouritesComponent = ({ restaurant }) => {
       <AntDesign
         name={isFavourite ? "heart" : "hearto"}
         size={24}
-        color={isFavourite ? "red" : "white"}
+        color={isFavourite ? "#A020F0" : "white"}
       />
         {isFavourite?(
         showMessage({
           message: "Success",
           description: "Added to favorites",
-          type: "success",
-          icon:"success",
+          type:"default",
+          icon:"auto",
+          color:"#fff",
           animated:true,
           autoHide:true,
           duration:2000
