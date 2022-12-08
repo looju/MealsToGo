@@ -7,6 +7,7 @@ import {
   Lato_400Regular,
   Griffy_400Regular,
   Tangerine_400Regular,
+  Arizonia_400Regular
 } from "@expo-google-fonts/dev";
 import FlashMessage from "react-native-flash-message";
 import { AuthenticationContextProvider } from "./src/Services/Authentication/Authentication-context";
@@ -40,6 +41,7 @@ export default function App() {
     Lato_400Regular,
     Griffy_400Regular,
     Tangerine_400Regular,
+    Arizonia_400Regular
   });
 
   if (!fontsLoaded) {

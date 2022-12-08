@@ -12,7 +12,7 @@ export const SettingsScreen = ({ navigation,route }) => {
         <View style={styles.avatarView}>
         <Avatar.Icon size={200} icon="human-handsdown"/>
         <View style={styles.emailView}>
-        <Text>Email@email.com</Text>
+        <Text style={{color:"#fff"}}>Email@email.com</Text>
         </View>
        
         </View>
@@ -24,7 +24,7 @@ export const SettingsScreen = ({ navigation,route }) => {
             left={() => <List.Icon icon="heart" color="#A020F0"/>}
             onPress={() => navigation.navigate("settingsFavourites")}
             style={{}}
-            titleStyle={{fontSize:18, fontFamily:"Oswald_400Regular"}}
+            titleStyle={{fontSize:18, fontFamily:"Oswald_400Regular", color:"#fff"}}
           />
           <List.Item
             title="Logout"
@@ -32,7 +32,7 @@ export const SettingsScreen = ({ navigation,route }) => {
             left={() => <List.Icon icon="logout" color="#A020F0"/>}
             onPress={onLogOut}
             style={{}}
-            titleStyle={{fontSize:18, fontFamily:"Oswald_400Regular"}}
+            titleStyle={{fontSize:18, fontFamily:"Oswald_400Regular", color:"#fff"}}
           />
         </List.Section>
       </View>
@@ -43,7 +43,7 @@ export const SettingsScreen = ({ navigation,route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "#000",
   },
   avatarView:{
     marginTop:40,

@@ -49,8 +49,8 @@ export const RestaurantDetails = ({ route }) => {
   };
 
   return (
-    <SafeAreaView>
-      <ScrollView>
+    <SafeAreaView style={{backgroundColor:"#000"}}>
+      <ScrollView style={{backgroundColor:"#000"}}>
       <RestaurantInfoCard restaurant={restaurant} />
       <ListAccordion />
       </ScrollView>

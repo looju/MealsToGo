@@ -17,8 +17,23 @@ export const SettingsNavigator = ({ route, navigation }) => {
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       }}
     >
-    <Stack.Screen name="settings" component={SettingsScreen} options={{headerShown:false}}></Stack.Screen>
-    <Stack.Screen name="settingsFavourites" component={SettingsFavourites} options={{...TransitionPresets.RevealFromBottomAndroid, headerTitleAlign:"center", headerTitle:"Favourites",headerStyle:{backgroundColor:"#A020F0"}, headerTitleStyle:{color:"#fff"}}}></Stack.Screen>
+      <Stack.Screen
+        name="settings"
+        component={SettingsScreen}
+        options={{ headerShown: false }}
+      ></Stack.Screen>
+      <Stack.Screen
+        name="settingsFavourites"
+        component={SettingsFavourites}
+        options={{
+          ...TransitionPresets.RevealFromBottomAndroid,
+          headerTitleAlign: "center",
+          headerTitle: "Favourites",
+          headerStyle: { backgroundColor: "#A020F0" },
+          headerTitleStyle: { color: "#fff" },
+          headerBackTitleStyle: { color: "#fff" }
+        }}
+      ></Stack.Screen>
     </Stack.Navigator>
   );
 };
