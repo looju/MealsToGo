@@ -9,14 +9,8 @@ import {
   Tangerine_400Regular,
 } from "@expo-google-fonts/dev";
 import FlashMessage from "react-native-flash-message";
-import { RestaurantsContextProvider } from "./src/Services/Restaurants/Restaurant-context";
-import { LocationContextProvider } from "./src/Services/Location/Location-context";
-import { FavouritesContextProvider } from "./src/Services/Favourites/Favourites-context";
 import { AuthenticationContextProvider } from "./src/Services/Authentication/Authentication-context";
 import { Navigation } from "./src/Infrastructure/Navigation/index";
-
-
-
 
 const { ThemeProvider } = createTheming({ colors });
 
@@ -54,14 +48,8 @@ export default function App() {
     return (
       <ThemeProvider>
         <AuthenticationContextProvider>
-          <FavouritesContextProvider>
-            <LocationContextProvider>
-              <RestaurantsContextProvider>
-                <Navigation/>
-                <FlashMessage position="bottom" />
-              </RestaurantsContextProvider>
-            </LocationContextProvider>
-          </FavouritesContextProvider>
+          <Navigation />
+          <FlashMessage position="bottom" />
         </AuthenticationContextProvider>
       </ThemeProvider>
     );

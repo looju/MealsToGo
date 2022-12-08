@@ -7,8 +7,8 @@ import { FavouritesContext } from "../../Services/Favourites/Favourites-context"
 
 export const FavouritesComponent = ({ restaurant }) => {
   const { favourites, addToFavourites, removeFromFavourites } =
-    useContext(FavouritesContext);
-   const [showAlert, setShowAlert] = useState(false);
+  useContext(FavouritesContext);
+  const [showAlert, setShowAlert] = useState(false);
   console.log(favourites.length);
   const isFavourite = favourites.find((r) => r.placeId === restaurant.placeId);
 
@@ -31,12 +31,22 @@ export const FavouritesComponent = ({ restaurant }) => {
         size={24}
         color={isFavourite ? "red" : "white"}
       />
-        {!isFavourite&&(
+        {isFavourite?(
         showMessage({
           message: "Success",
           description: "Added to favorites",
           type: "success",
           icon:"success",
+          animated:true,
+          autoHide:true,
+          duration:2000
+        })
+      ):(
+        showMessage({
+          message: "Done",
+          description: "Removed from favorites",
+          type: "info",
+          icon:"auto",
           animated:true,
           autoHide:true,
           duration:2000
