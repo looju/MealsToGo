@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import { Card } from "react-native-paper";
-import React,{useContext} from "react";
+import React from "react";
 import { colors } from "../../../Infrastructure/Theme/colors";
 import { createTheming } from "@callstack/react-theme-provider";
 import { SvgUri } from "react-native-svg";
