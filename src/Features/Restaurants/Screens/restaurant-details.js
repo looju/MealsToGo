@@ -20,7 +20,7 @@ export const RestaurantDetails = ({ route }) => {
     const [expanded, setExpanded] = useState(false);
     const handlePress = () => setExpanded(!expanded); // to control the expansion of the accordion
     return (
-      <List.Section style={{ backgroundColor: "#000", height: 300 }}>
+      <List.Section style={{ backgroundColor: "#000", height: 700 }}>
         <List.Accordion
           title="Breakfast"
           titleStyle={{ color: "#fff" }}
