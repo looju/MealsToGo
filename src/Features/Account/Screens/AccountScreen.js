@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import { ButtonComponents } from "../Components/ButtonComponents";
 import TypeWriter from "react-native-typewriter";
+import LottieView from "lottie-react-native";
 
 export const AccountScreen = ({ navigation }) => {
   return (
@@ -10,8 +11,26 @@ export const AccountScreen = ({ navigation }) => {
       source={require("../../../../assets/newhome.jpg")}
       style={styles.container}
     >
+        <View style={{width:200, height:200, left:100, top:20}}>
+          <LottieView
+            autoPlay
+            loop
+            source={require("../../../../assets/food.json")}
+          />
+        </View>
       <View style={styles.textView}>
-        <TypeWriter typing={1} minDelay={100} initialDelay={1500} style={{color:"#fff", fontSize:30, fontFamily:"Griffy_400Regular"}}>MealsToGo</TypeWriter>
+        <TypeWriter
+          typing={1}
+          minDelay={100}
+          initialDelay={1500}
+          style={{
+            color: "#fff",
+            fontSize: 30,
+            fontFamily: "Griffy_400Regular",
+          }}
+        >
+          MealsToGo
+        </TypeWriter>
       </View>
 
       <View style={styles.buttonContainer}>
@@ -43,12 +62,12 @@ const styles = StyleSheet.create({
     height: 150,
     borderRadius: 5,
     backgroundColor: "rgba(225,225,225,0.9)",
-    marginTop: 350,
+    marginTop: 150,
     marginLeft: 130,
     justifyContent: "space-evenly",
   },
   textView: {
-    top: 300,
+    top: 150,
     alignItems: "center",
     justifyContent: "center",
   },
