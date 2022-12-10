@@ -30,23 +30,13 @@ export const FavouritesComponent = ({ restaurant }) => {
         size={24}
         color={isFavourite ? "#A020F0" : "white"}
       />
-        {isFavourite?(
+        {isFavourite&&(
         showMessage({
           message: "Success",
           description: "Added to favorites",
           type:"default",
           icon:"auto",
           color:"#fff",
-          animated:true,
-          autoHide:true,
-          duration:2000
-        })
-      ):(
-        showMessage({
-          message: "Done",
-          description: "Removed from favorites",
-          type: "info",
-          icon:"auto",
           animated:true,
           autoHide:true,
           duration:2000

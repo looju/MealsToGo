@@ -1,7 +1,7 @@
 // this navigation is solely responsible for all the navigation that can occur in the restaurants tab, located in App-navigator.js
 
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {StyleSheet} from 'react-native';
 import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import { Restaurant } from '../../Features/Restaurants/Screens/restaurant-screen';
 import { RestaurantDetails } from '../../Features/Restaurants/Screens/restaurant-details';
@@ -17,6 +17,6 @@ export const RestaurantNavigator = () => {
     );
 }
 
-const styles = StyleSheet.create({})
+
 
 

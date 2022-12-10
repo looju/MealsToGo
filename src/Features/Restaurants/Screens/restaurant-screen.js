@@ -20,7 +20,7 @@ export const Restaurant = ({ navigation }) => {
           style={{
             justifyContent: "center",
             top: 400,
-            backgroundColor: "#fff",
+            backgroundColor: "rgba(0,0,0,0.8)",
           }}
         >
           <ActivityIndicator size={30} animating={true} color="blue" />
@@ -34,6 +34,7 @@ export const Restaurant = ({ navigation }) => {
         <FavouritesBar favourites={favourites} navigation={navigation} />
       )}
       <FlatList
+        style={{ backgroundColor: "rgba(0,0,0,0.8)" }}
         data={restaurants}
         renderItem={({ item }) => {
           return (
