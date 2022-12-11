@@ -11,11 +11,15 @@ function randomPrice(first, second) {
 }
 let price = randomPrice(8, 21);
 
+const processPayment=()=>{
+  setNoPayment(true)
+}
+
   return (
     <PaymentState.Provider
       value={{
         noPayment,
-        setNoPayment,
+        processPayment,
         price
       }}
     >

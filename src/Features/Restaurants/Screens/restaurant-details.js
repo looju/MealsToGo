@@ -7,6 +7,7 @@ import { List } from "react-native-paper";
 
 export const RestaurantDetails = ({ route, navigation }) => {
   const { restaurant } = route.params;
+ 
 
   const RestaurantName = () => {
     return (
@@ -118,7 +119,7 @@ export const RestaurantDetails = ({ route, navigation }) => {
         <RestaurantName />
         <RestaurantInfoCard restaurant={restaurant} />
         <ListAccordion />
-        <PaymentButton navigation={navigation} />
+        <PaymentButton navigation={navigation} restaurant={restaurant} />
       </ScrollView>
     </SafeAreaView>
   );

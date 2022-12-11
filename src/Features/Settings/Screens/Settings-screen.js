@@ -24,7 +24,6 @@ export const SettingsScreen = ({ navigation, route }) => {
             description="View your favourite restaurants"
             left={() => <List.Icon icon="heart" color="#A020F0" />}
             onPress={() => navigation.navigate("settingsFavourites")}
-            style={{}}
             titleStyle={{
               fontSize: 18,
               fontFamily: "Oswald_400Regular",

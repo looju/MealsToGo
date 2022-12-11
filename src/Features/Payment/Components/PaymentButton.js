@@ -4,12 +4,12 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import {PaymentState} from "../../../Services/Payment/PaymentStateProvider"
 
 
-export const PaymentButton = ({navigation}) => {
- const {setNoPayment,price}=useContext(PaymentState)
+export const PaymentButton = ({navigation,restaurant}) => {
+ const {processPayment,price, noPayment}=useContext(PaymentState)
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("Payment")}
-      onPressOut={() => setNoPayment(true)}
+      onPress={() => navigation.navigate("Payment",{restaurant:restaurant})}
+      onLongPress={processPayment}
     >
       <View style={styles.button}>
         <Text style={styles.descriptiontext}>
