@@ -8,7 +8,7 @@ export const PaymentButton = ({navigation,restaurant}) => {
  const {processPayment,price, noPayment}=useContext(PaymentState)
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate("Payment",{restaurant:restaurant})}
+      onPress={() => navigation.navigate("Payment",{price:price})}
       onLongPress={processPayment}
     >
       <View style={styles.button}>

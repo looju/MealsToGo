@@ -1,46 +1,79 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { View, Text, TouchableOpacity } from "react-native";
 import { PaymentState } from "../../../Services/Payment/PaymentStateProvider";
-import { Paystack } from "react-native-paystack-webview";
 import { List } from "react-native-paper";
 import LottieView from "lottie-react-native";
 import { RestaurantsContext } from "../../../Services/Restaurants/Restaurant-context";
 
-export const PaystackGateway = (route, navigation) => {
+export const PaystackGateway = ({ navigation, route }) => {
   const { noPayment, price } = useContext(PaymentState);
+  const [clear, setClear] = useState(false);
 
-  function PaymentCheckOut(){
-    return(
-      <View style={{ flex: 1 }}>
-      <Paystack
-        paystackKey="pk_test_4345d3165483814deea06c7622f13ecb59693e21"
-        amount={price}
-        billingEmail="Mealstogo@food.com"
-        billingName="MealsToGo"
-        billingMobile="08187996286"
-        activityIndicatorColor="#A020F0"
-        onCancel={(e) => {
-          navigation.navigate("RestaurantDetail");
-          console.log(e);
-        }}
-        onSuccess={(res) => {
-          alert(
-            "Successful",
-            `Payments successfully made!. Your ID number is ${res}`
-          );
-          console.log(res);
-        }}
-        channels={["card", "ussd"]}
-        autoStart={true}
-      />
-    </View>
-    )
-   
-  };
+  // useEffect(() => {
+  //   if (clear) {
+  //     return (
+  //       <View
+  //         style={{
+  //           justifyContent: "center",
+  //           alignItems: "center",
+  //           alignContent: "center",
+  //           height: 600,
+  //         }}
+  //       >
+  //         <LottieView
+  //           source={require("../../../../assets/transaction.json")}
+  //           style={{ width: 200, height: 200, marginVertical: 20 }}
+  //           autoPlay
+  //           loop
+  //         />
+  //         <View>
+  //           <Text
+  //             style={{
+  //               color: "#fff",
+  //               fontFamily: "Griffy_400Regular",
+  //               fontSize: 15,
+  //             }}
+  //           >
+  //             No saved favourites yet!
+  //           </Text>
+  //         </View>
+  //       </View>
+  //     );
+  //   }
+  // }, []);
 
   return (
     <View style={{ flex: 1, backgroundColor: "#000" }}>
+      {clear && (
+        <View
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            alignContent: "center",
+            height: 600,
+          }}
+        >
+          <LottieView
+            source={require("../../../../assets/emptycart.json")}
+            style={{ width: 200, height: 200, marginVertical: 20 }}
+            autoPlay
+            loop
+          />
+          <View>
+            <Text
+              style={{
+                color: "#fff",
+                fontFamily: "Griffy_400Regular",
+                fontSize: 15,
+              }}
+            >
+            Payment canceled!
+            </Text>
+          </View>
+        </View>
+      )}
+
       <View
         style={{
           justifyContent: "center",
@@ -69,8 +102,8 @@ export const PaystackGateway = (route, navigation) => {
             }}
           />
           <List.Item
-            title="Price (in $)"
-            description={price}
+            title="Price (in NGN)"
+            description={price * 700}
             left={() => <List.Icon icon="cash-100" color="#A020F0" />}
             titleStyle={{
               fontSize: 18,
@@ -91,14 +124,14 @@ export const PaystackGateway = (route, navigation) => {
         </List.Section>
         <View>
           <TouchableOpacity
-            onPress={()=>alert("hello")}
+            onPress={() => navigation.navigate("PaystackCheckout")}
           >
             <View
               style={{
                 backgroundColor: "#A020F0",
                 width: 300,
                 height: 30,
-                marginTop:50,
+                marginTop: 40,
                 borderRadius: 10,
                 left: 50,
                 alignItems: "center",
@@ -124,6 +157,46 @@ export const PaystackGateway = (route, navigation) => {
               >
                 <MaterialCommunityIcons
                   name="cash-multiple"
+                  color="white"
+                  size={30}
+                />
+              </View>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity onPress={() => setClear(true)}>
+            <View
+              style={{
+                backgroundColor: "#A020F0",
+                width: 300,
+                height: 30,
+                marginTop: 10,
+                borderRadius: 10,
+                left: 50,
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "row",
+              }}
+            >
+              <Text
+                style={{
+                  color: "#fff",
+                  fontFamily: "Griffy_400Regular",
+                  fontSize: 20,
+                }}
+              >
+                Cancel payment
+              </Text>
+              <View
+                style={{
+                  paddingLeft: 10,
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <MaterialCommunityIcons
+                  name="cart-remove"
                   color="white"
                   size={30}
                 />

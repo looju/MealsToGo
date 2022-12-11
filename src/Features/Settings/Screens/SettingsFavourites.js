@@ -18,7 +18,7 @@ export const SettingsFavourites = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#000" }}>
       {favourites.length===0 && (
         <View style={{ justifyContent:"center",alignItems:"center", alignContent:"center",height:600}}>
-          <LottieView source={require('../../../../assets/emptycart.json')} style={{width:200, height:200, marginVertical:20}} autoPlay loop />
+          <LottieView source={require('../../../../assets/star.json')} style={{width:200, height:200, marginVertical:20}} autoPlay loop />
           <View>
             <Text style={{color:"#fff", fontFamily:"Griffy_400Regular", fontSize:15}}>No saved favourites yet!</Text>
           </View>
