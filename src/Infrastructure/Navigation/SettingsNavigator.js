@@ -5,6 +5,7 @@ import {
   TransitionPresets,
 } from "@react-navigation/stack";
 import { SettingsScreen } from "../../Features/Settings/Screens/Settings-screen";
+import {CameraScreen} from '../../Features/Camera/Screens/Camera'
 import { SettingsFavourites } from "../../Features/Settings/Screens/SettingsFavourites";
 
 const Stack = createStackNavigator();
@@ -32,6 +33,14 @@ export const SettingsNavigator = ({ route, navigation }) => {
           headerStyle: { backgroundColor: "#A020F0" },
           headerTitleStyle: { color: "#fff" },
           headerBackTitleStyle: { color: "#fff" }
+        }}
+      ></Stack.Screen>
+       <Stack.Screen
+        name="Camera"
+        component={CameraScreen}
+        options={{
+          ...TransitionPresets.BottomSheetAndroid,
+          headerShown:false
         }}
       ></Stack.Screen>
     </Stack.Navigator>
