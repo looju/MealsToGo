@@ -31,8 +31,8 @@ export const RestaurantNavigator = () => {
         options={{
           ...TransitionPresets.ScaleFromCenterAndroid,
           headerShown: true,
-          headerTitle: "CheckOut Screen",
-          title: "CheckOut Screen",
+          headerTitle: "Checkout Screen",
+          title: "Checkout Screen",
           headerStyle: { backgroundColor: "#A020F0" },
           headerTitleStyle: { color: "#fff" },
           headerBackTitleStyle: { color: "#fff" },

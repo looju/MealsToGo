@@ -9,6 +9,8 @@ import { RestaurantsContext } from "../../../Services/Restaurants/Restaurant-con
 export const PaystackGateway = ({ navigation, route }) => {
   const { noPayment, price } = useContext(PaymentState);
   const [clear, setClear] = useState(false);
+  const {name}=route.params
+  console.log(name)
 
   // useEffect(() => {
   //   if (clear) {
@@ -93,7 +95,7 @@ export const PaystackGateway = ({ navigation, route }) => {
         <List.Section>
           <List.Item
             title="Restaurant Name"
-            description="res"
+            description={name}
             left={() => <List.Icon icon="food" color="#A020F0" />}
             titleStyle={{
               fontSize: 18,

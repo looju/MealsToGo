@@ -7,9 +7,9 @@ import { List } from "react-native-paper";
 
 export const RestaurantDetails = ({ route, navigation }) => {
   const { restaurant } = route.params;
- 
+  
 
-  const RestaurantName = () => {
+   const RestaurantName = () => {
     return (
       <View
         style={{ alignItems: "center", justifyContent: "center", height: 50 }}
@@ -119,7 +119,7 @@ export const RestaurantDetails = ({ route, navigation }) => {
         <RestaurantName />
         <RestaurantInfoCard restaurant={restaurant} />
         <ListAccordion />
-        <PaymentButton navigation={navigation} restaurant={restaurant} />
+        <PaymentButton navigation={navigation} name={restaurant.name} />
       </ScrollView>
     </SafeAreaView>
   );

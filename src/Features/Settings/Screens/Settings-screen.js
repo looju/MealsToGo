@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import { List, Avatar } from "react-native-paper";
-import {useFocusEffect} from '@react-navigation/native'
 import {
   View,
   StyleSheet,
@@ -12,7 +11,7 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FadeInView } from "../../../Components/Animations/FadeAnimation";
 import { AuthenticationContext } from "../../../Services/Authentication/Authentication-context";
-import { async } from "@firebase/util";
+
 
 export const SettingsScreen = ({ navigation, route }) => {
   const { onLogOut, user } = useContext(AuthenticationContext);
@@ -23,9 +22,19 @@ export const SettingsScreen = ({ navigation, route }) => {
     setPhoto(profilePhoto);
   };
 
+  const getUserGalleryPicture=async (user) => {
+    const galleryProfilePhoto = AsyncStorage.getItem(`${user.uid}-galleryphoto`);
+    setPhoto(galleryProfilePhoto);
+  };
+
   useEffect(() => {
     getUserPicture(user);
   }, [user]);
+
+  useEffect(() => {
+    getUserGalleryPicture(user);
+  }, [user]);
+
 
 
   return (

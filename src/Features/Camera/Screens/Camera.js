@@ -86,8 +86,9 @@ export function CameraScreen({ navigation }) {
       quality: 1,
     });
     if(!result.canceled){
-      AsyncStorage.setItem(`${user.uid}-photo`, photoValue);
-      navigation.navigate("settings");
+      const galleryPhoto=result.assets[0].uri
+      AsyncStorage.setItem(`${user.uid}-galleryphoto`,galleryPhoto );
+      navigation.goBack()
     }
   }
   
@@ -121,9 +122,9 @@ export function CameraScreen({ navigation }) {
         <View style={styles.galleryButtonContainer}>
           <TouchableOpacity onPress={pickImage}>
             <MaterialCommunityIcons
-              name="photo"
+              name="file-image"
               color={"#A020F0"}
-              size={40}
+              size={30}
             />
           </TouchableOpacity>
         </View>
@@ -200,7 +201,7 @@ const styles = StyleSheet.create({
     left: "45%",
   },
   galleryButtonContainer:{
-    top: "85%",
-    left: "100%",
+    top: "80%",
+    left: "70%",
   }
 });

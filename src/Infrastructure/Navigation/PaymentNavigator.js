@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  createStackNavigator,
-  TransitionPresets,
-} from "@react-navigation/stack";
+
 import { PaystackGateway } from "../../Features/Payment/Screens/PaystackGateway";
 import { PaymentStateProvider } from "../../Services/Payment/PaymentStateProvider";
 const PaymentStack = createStackNavigator();
@@ -23,3 +20,7 @@ export const PaymentNavigator = () => {
     </PaymentStateProvider>
   );
 };
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
