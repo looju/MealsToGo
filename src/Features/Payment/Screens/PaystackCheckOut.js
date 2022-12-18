@@ -1,5 +1,5 @@
 import React,{useContext} from "react"
-import { View } from "react-native";
+import { View,Alert } from "react-native";
 import { Paystack } from "react-native-paystack-webview";
 import { PaymentState } from "../../../Services/Payment/PaymentStateProvider";
 export const PaystackCheckOut=({navigation})=>{
@@ -18,10 +18,14 @@ export const PaystackCheckOut=({navigation})=>{
           console.log(e);
         }}
         onSuccess={(res) => {
-          alert(
-            "Successful",
-            `Payments successfully made!. Your ID number is ${res}`
+          Alert.alert(
+            "Success!",
+            `Payments successfully made. Your ref number is ${res.transactionRef.trxref}`,
+            [
+              { text: "OK" }
+            ]
           );
+          navigation.goBack();
           console.log(res);
         }}
         channels={["card", "ussd"]}

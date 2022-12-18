@@ -17,7 +17,7 @@ import { auth } from "./Authentication-service";
 
 export const AuthenticationContext = createContext();
 
-export const AuthenticationContextProvider = ({ children }) => {
+export const AuthenticationContextProvider = ({ children, navigation }) => {
   WebBrowser.maybeCompleteAuthSession();
 
   // const Provider=new GoogleAuthProvider()
@@ -96,7 +96,12 @@ export const AuthenticationContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (response?.type === "success") {
-      setAccessToken(response.authentication.accessToken);
+      const {authentication} = response
+      const {accessToken}=authentication
+      setAccessToken(accessToken)
+    }
+    if (response?.type === "dismiss") {
+      console.log("Dismissed by user");
     }
     if (response?.type === "error") {
       console.log("problem with response");
@@ -105,15 +110,15 @@ export const AuthenticationContextProvider = ({ children }) => {
 
   async function getUserData() {
     let userInfoResponse = await fetch(
-      "https://www.googleapis.com/auth/userinfo.profile",
-      {
-        headers: { Authorization: `Bearer${accessToken}` },
-      }
+      `https://www.googleapis.com/oauth2/v3/userinfo?access_token=ya29.a0AX9GBdVklRNVMi5bbxp-tXjoPzpQ0vBaRFu2TBavaHr7Z6j-RMbjIUZdi3jHsXUuHmC5AxDEXKYl2qekjBIuYlh0CAyFQRIcyEY7NHe_MBzXh4M7rTfoyhTPasfpSC_wgnbzEUpXYdcMXzjA4t0pKaCRMcD9jwaCgYKAaASARASFQHUCsbCBG28tM9ITr_xamgxjzqIxA0165`,
+      // {
+      //   headers: { Authorization: `Bearer ${accessToken}` },
+      // }
     );
-
-    userInfoResponse.json().then((data) => {
+   console.log(userInfoResponse)
+    userInfoResponse.json().then(data => {
       setUser(data);
-      console.log(data);
+      console.log(user);
     });
   } // fetches the user authenticated id if there is an access token
 

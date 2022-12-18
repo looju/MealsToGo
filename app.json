@@ -11,7 +11,7 @@
       "resizeMode": "cover",
       "backgroundColor": "#000"
     },
-    "scheme": "https://auth.expo.io/@loju/MealsToGo",
+    "scheme":"https://expo.dev",
     "updates": {
       "fallbackToCacheTimeout": 0
     },

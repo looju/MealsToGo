@@ -10,7 +10,7 @@ export const PaystackGateway = ({ navigation, route }) => {
   const { noPayment, price } = useContext(PaymentState);
   const [clear, setClear] = useState(false);
   const {name}=route.params
-  console.log(name)
+
 
   // useEffect(() => {
   //   if (clear) {
