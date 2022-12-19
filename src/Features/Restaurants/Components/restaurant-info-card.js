@@ -92,6 +92,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "rgba(0,0,0,0.8)"
   },
   card: {
     backgroundColor: "#FFFFFF",
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     marginLeft:20
   },
   cardcover: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "rgba(0,0,0,0.8)",
   },
   text: {
     fontFamily: "Oswald_400Regular",

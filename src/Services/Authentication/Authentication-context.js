@@ -95,11 +95,11 @@ export const AuthenticationContextProvider = ({ children, navigation }) => {
   });
 
   if (response?.type === "success") {
-    const { accessToken } = response.authentication;
-    let newToken = accessToken;
-    setToken(newToken);
-    console.log(token);
+    const { accessToken } = response.authentication
+    setToken(accessToken)
+    console.log(token)   
   }
+ 
   if (response?.type === "dismiss") {
     console.log("Dismissed by user");
   }
@@ -107,19 +107,18 @@ export const AuthenticationContextProvider = ({ children, navigation }) => {
     console.log("problem with response");
   } //fetches the accesstoken once successful
 
-  const getUserData =() => {
-    fetch(
-      `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${token}`
-    ).then((response) => {
-      if (response.ok) {
-        response.json().then((json) => {
-          console.log(json);
-        });
-      }
-    })
-    .catch((error)=>{
-      console.log("erro fetching user auth"+ error)
-    })
+  const getUserData = () => {
+    fetch(`https://www.googleapis.com/oauth2/v3/userinfo?access_token=${token}`)
+      .then((response) => {
+        if (response.ok) {
+          response.json().then((json) => {
+            console.log(json);
+          });
+        }
+      })
+      .catch((error) => {
+        console.log("erro fetching user auth" + error);
+      });
   };
 
   // fetches the user authenticated id if there is an access token

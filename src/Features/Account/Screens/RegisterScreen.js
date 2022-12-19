@@ -64,7 +64,7 @@ export const RegisterScreen = () => {
       <ButtonComponents
           icon={"google"}
           onPress={() => {
-            token?getUserData:promptAsync()
+            token?getUserData():promptAsync()
             }}
             disabled={!request}
         />
