@@ -25,7 +25,7 @@ export const AuthenticationContextProvider = ({ children, navigation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [user, setUser] = useState(null);
-  const [accessToken, setAccessToken] = useState("");
+  const [token, setToken] = useState(null);
 
   const onLogin = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
@@ -52,7 +52,7 @@ export const AuthenticationContextProvider = ({ children, navigation }) => {
   });
 
   const onRegister = (email, password, repeatedPassword) => {
-    setIsLoading(true)
+    setIsLoading(true);
     if (password !== repeatedPassword) {
       setError("Seems like the passwords do not match");
     }
@@ -72,7 +72,7 @@ export const AuthenticationContextProvider = ({ children, navigation }) => {
 
   const onLogOut = () => {
     setUser(null);
-    signOut()
+    signOut();
   };
 
   //  const google=()=>{
@@ -94,33 +94,35 @@ export const AuthenticationContextProvider = ({ children, navigation }) => {
       "863133268828-sbeuuhtrpedudflff4vdfihs39tekhur.apps.googleusercontent.com",
   });
 
-  useEffect(() => {
-    if (response?.type === "success") {
-      const {authentication} = response
-      const {accessToken}=authentication
-      setAccessToken(accessToken)
-    }
-    if (response?.type === "dismiss") {
-      console.log("Dismissed by user");
-    }
-    if (response?.type === "error") {
-      console.log("problem with response");
-    }
-  }, [response]); //fetches the accesstoken once successful
+  if (response?.type === "success") {
+    const { accessToken } = response.authentication;
+    let newToken = accessToken;
+    setToken(newToken);
+    console.log(token);
+  }
+  if (response?.type === "dismiss") {
+    console.log("Dismissed by user");
+  }
+  if (response?.type === "error") {
+    console.log("problem with response");
+  } //fetches the accesstoken once successful
 
-  async function getUserData() {
-    let userInfoResponse = await fetch(
-      `https://www.googleapis.com/oauth2/v3/userinfo?access_token=ya29.a0AX9GBdVklRNVMi5bbxp-tXjoPzpQ0vBaRFu2TBavaHr7Z6j-RMbjIUZdi3jHsXUuHmC5AxDEXKYl2qekjBIuYlh0CAyFQRIcyEY7NHe_MBzXh4M7rTfoyhTPasfpSC_wgnbzEUpXYdcMXzjA4t0pKaCRMcD9jwaCgYKAaASARASFQHUCsbCBG28tM9ITr_xamgxjzqIxA0165`,
-      // {
-      //   headers: { Authorization: `Bearer ${accessToken}` },
-      // }
-    );
-   console.log(userInfoResponse)
-    userInfoResponse.json().then(data => {
-      setUser(data);
-      console.log(user);
-    });
-  } // fetches the user authenticated id if there is an access token
+  const getUserData =() => {
+    fetch(
+      `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${token}`
+    ).then((response) => {
+      if (response.ok) {
+        response.json().then((json) => {
+          console.log(json);
+        });
+      }
+    })
+    .catch((error)=>{
+      console.log("erro fetching user auth"+ error)
+    })
+  };
+
+  // fetches the user authenticated id if there is an access token
 
   return (
     <AuthenticationContext.Provider
@@ -134,7 +136,7 @@ export const AuthenticationContextProvider = ({ children, navigation }) => {
         getUserData,
         request,
         onLogOut,
-        accessToken,
+        token,
         isAuthenticated: !!user,
       }}
     >

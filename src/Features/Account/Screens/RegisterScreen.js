@@ -9,7 +9,7 @@ export const RegisterScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
-  const { onRegister, error,promptAsync,getUserData,request,accessToken } = useContext(AuthenticationContext);
+  const { onRegister, error,promptAsync,getUserData,request,token } = useContext(AuthenticationContext);
   return (
     <ImageBackground
       resizeMode="cover"
@@ -64,7 +64,7 @@ export const RegisterScreen = () => {
       <ButtonComponents
           icon={"google"}
           onPress={() => {
-            accessToken?getUserData:promptAsync()
+            token?getUserData:promptAsync()
             }}
             disabled={!request}
         />
