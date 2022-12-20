@@ -35,7 +35,7 @@ export const Restaurant = ({ navigation }) => {
               justifyContent: "center",
               alignItems: "center",
             }}
-            source={require("../../../../assets/spoon.json")}
+            source={require("../../../../assets/lunch.json")}
             autoPlay
             loop
           />
