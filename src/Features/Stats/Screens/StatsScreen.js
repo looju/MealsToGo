@@ -1,9 +1,13 @@
-import React from "react";
+import React,{useContext} from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { VictoryPie, VictoryLabel } from "victory-native";
-
+import { StatsState } from "../../../Services/Stats/StatsStateProvider";
 export const StatsScreen = () => {
-  const data = [
+
+const {data,addToData}=useContext(StatsState);
+
+
+  const newdata = [
     { x: 1, y: 2, label: "one" },
     { x: 2, y: 3, label: "two" },
     { x: 3, y: 5, label: "three" },
