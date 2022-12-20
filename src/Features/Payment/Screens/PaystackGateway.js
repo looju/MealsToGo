@@ -7,7 +7,7 @@ import LottieView from "lottie-react-native";
 import { RestaurantsContext } from "../../../Services/Restaurants/Restaurant-context";
 
 export const PaystackGateway = ({ navigation, route }) => {
-  const { noPayment, price } = useContext(PaymentState);
+  const { price } = useContext(PaymentState);
   const [clear, setClear] = useState(false);
   const {name}=route.params
 

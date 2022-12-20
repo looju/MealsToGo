@@ -5,6 +5,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { RestaurantNavigator } from "./Restaurant-navigator";
 import { MapScreen } from "../../Features/Map/Screens/Map-screen";
+import {StatsScreen} from "../../Features/Stats/Screens/StatsScreen"
 import { SettingsNavigator } from "./SettingsNavigator";
 import { RestaurantsContextProvider } from "../../Services/Restaurants/Restaurant-context";
 import { LocationContextProvider } from "../../Services/Location/Location-context";
@@ -31,8 +32,8 @@ export const AppNavigation = () => {
                       iconName = "map-legend";
                       size = focused ? 25 : 20;
                       color = focused ? "#A020F0" : "grey";
-                    } else if (route.name === "Payment") {
-                      iconName = "cash-multiple";
+                    } else if (route.name === "Stats") {
+                      iconName = "chart-donut";
                       size = focused ? 25 : 20;
                       color = focused ? "#A020F0" : "grey";
                     } else if (route.name === "Settings") {
@@ -56,6 +57,7 @@ export const AppNavigation = () => {
               >
                 <Tab.Screen name="Restaurant" component={RestaurantNavigator} />
                 <Tab.Screen name="Map" component={MapScreen} />
+                <Tab.Screen name="Stats" component={StatsScreen} />
                 <Tab.Screen name="Settings" component={SettingsNavigator} />
               </Tab.Navigator>
             </RestaurantsContextProvider>

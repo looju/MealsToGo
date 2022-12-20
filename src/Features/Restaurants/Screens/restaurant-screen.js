@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { FlatList, SafeAreaView, View, TouchableOpacity } from "react-native";
-import { ActivityIndicator } from "react-native-paper";
 import LottieView from "lottie-react-native";
 import { RestaurantsContext } from "../../../Services/Restaurants/Restaurant-context";
 import { Search } from "../Components/Search-component";
@@ -30,7 +29,6 @@ export const Restaurant = ({ navigation }) => {
           }}
         >
           <LottieView
-            colorFilters={"#A0F"}
             style={{
               width: 100,
               height: 100,

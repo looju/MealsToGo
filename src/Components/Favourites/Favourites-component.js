@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
-import styled from "styled-components/native";
+import React, { useContext} from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
-import { showMessage, hideMessage } from "react-native-flash-message";
+import { showMessage} from "react-native-flash-message";
 import { FavouritesContext } from "../../Services/Favourites/Favourites-context";
 
 export const FavouritesComponent = ({ restaurant }) => {
