@@ -7,9 +7,9 @@ export const StatsScreen = () => {
   const { data } = useContext(StatsState);
 
   const newdata = [
-    { x: 1, y: 2, label: "one" },
-    { x: 2, y: 3, label: "two" },
-    { x: 3, y: 5, label: "three" },
+    { x: 1, y: 1, label: "one" },
+    { x: 2, y: 2, label: "two" },
+    { x: 3, y: 3, label: "three" },
   ];
 
   return (
@@ -41,9 +41,8 @@ export const StatsScreen = () => {
           innerRadius={({ datum }) => datum.y * 5}
           colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
           animate={{
-            duration: 5000,
+            duration: 50000,
             easing: "circleIn",
-            delay: 1000,
           }}
           height={500}
           style={{ labels: { fill: "#fff", fontFamily: " Griffy_400Regular" } }}

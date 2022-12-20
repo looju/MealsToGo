@@ -126,7 +126,7 @@ export const PaystackGateway = ({ navigation, route }) => {
         </List.Section>
         <View>
           <TouchableOpacity
-            onPress={() => navigation.navigate("PaystackCheckout")}
+            onPress={() => navigation.navigate("PaystackCheckout",{name})}
           >
             <View
               style={{
