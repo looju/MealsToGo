@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { Animated } from "react-native";
+import { Animated, Easing } from "react-native";
 
 export const FadeInView = ({ duration, ...props }) => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -22,20 +22,25 @@ export const FadeInView = ({ duration, ...props }) => {
   );
 };
 
-export const slideInView = ({ duration, ...props }) => {
-  const slideAnim = useRef(new Animated.Value(0)).current;
+export const SlideInView = ({ duration, ...props }) => {
+  const slideAnim = useRef(new Animated.Value(50)).current;
   useEffect(() => {
     Animated.timing(slideAnim, {
-      toValue: 50,
+      toValue: 5,
       duration: duration,
       useNativeDriver: true,
+      easing:Easing.bounce
     }).start();
   }, [slideAnim, duration]);
   return (
     <Animated.View
       style={{
         ...props.style,
-        opacity: fadeAnim,
+        transform: [
+          {
+            translateX:slideAnim
+          },
+        ],
       }}
     >
       {props.children}

@@ -4,12 +4,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { RestaurantInfoCard } from "../Components/restaurant-info-card";
 import { PaymentButton } from "../../Payment/Components/PaymentButton";
 import { List } from "react-native-paper";
+import { SlideInView } from "../../../Components/Animations/FadeAnimation";
 
 export const RestaurantDetails = ({ route, navigation }) => {
   const { restaurant } = route.params;
-  
 
-   const RestaurantName = () => {
+  const RestaurantName = () => {
     return (
       <View
         style={{ alignItems: "center", justifyContent: "center", height: 50 }}
@@ -43,18 +43,22 @@ export const RestaurantDetails = ({ route, navigation }) => {
             expanded={expanded}
             onPress={handlePress}
           >
-            <List.Item
-              titleStyle={{ color: "#fff" }}
-              title="Eggs"
-              left={(props) => <List.Icon {...props} icon="egg" color="#fff" />}
-            />
-            <List.Item
-              titleStyle={{ color: "#fff" }}
-              title="Oats"
-              left={(props) => (
-                <List.Icon {...props} icon="bowl" color="#fff" />
-              )}
-            />
+            <SlideInView duration={3000}>
+              <List.Item
+                titleStyle={{ color: "#fff" }}
+                title="Eggs"
+                left={(props) => (
+                  <List.Icon {...props} icon="egg" color="#fff" />
+                )}
+              />
+              <List.Item
+                titleStyle={{ color: "#fff" }}
+                title="Oats"
+                left={(props) => (
+                  <List.Icon {...props} icon="bowl" color="#fff" />
+                )}
+              />
+            </SlideInView>
           </List.Accordion>
 
           <List.Accordion
@@ -67,20 +71,22 @@ export const RestaurantDetails = ({ route, navigation }) => {
             onPress={handlePress}
             style={{ backgroundColor: "#000" }}
           >
-            <List.Item
-              titleStyle={{ color: "#fff" }}
-              title="Rice"
-              left={(props) => (
-                <List.Icon {...props} icon="rice" color="#fff" />
-              )}
-            />
-            <List.Item
-              titleStyle={{ color: "#fff" }}
-              title="Cookie"
-              left={(props) => (
-                <List.Icon {...props} icon="cookie" color="#fff" />
-              )}
-            />
+            <SlideInView duration={3000}>
+              <List.Item
+                titleStyle={{ color: "#fff" }}
+                title="Rice"
+                left={(props) => (
+                  <List.Icon {...props} icon="rice" color="#fff" />
+                )}
+              />
+              <List.Item
+                titleStyle={{ color: "#fff" }}
+                title="Cookie"
+                left={(props) => (
+                  <List.Icon {...props} icon="cookie" color="#fff" />
+                )}
+              />
+            </SlideInView>
           </List.Accordion>
 
           <List.Accordion
@@ -93,20 +99,22 @@ export const RestaurantDetails = ({ route, navigation }) => {
             onPress={handlePress}
             style={{ backgroundColor: "#000" }}
           >
-            <List.Item
-              titleStyle={{ color: "#fff" }}
-              title="spaghetti"
-              left={(props) => (
-                <List.Icon {...props} icon="noodles" color="#fff" />
-              )}
-            />
-            <List.Item
-              titleStyle={{ color: "#fff" }}
-              title="Chiili"
-              left={(props) => (
-                <List.Icon {...props} icon="chili-hot" color="#fff" />
-              )}
-            />
+            <SlideInView duration={3000}>
+              <List.Item
+                titleStyle={{ color: "#fff" }}
+                title="spaghetti"
+                left={(props) => (
+                  <List.Icon {...props} icon="noodles" color="#fff" />
+                )}
+              />
+              <List.Item
+                titleStyle={{ color: "#fff" }}
+                title="Chiili"
+                left={(props) => (
+                  <List.Icon {...props} icon="chili-hot" color="#fff" />
+                )}
+              />
+            </SlideInView>
           </List.Accordion>
         </List.Section>
       </ScrollView>
