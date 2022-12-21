@@ -29,7 +29,7 @@ export const SlideInView = ({ duration, ...props }) => {
       toValue: 5,
       duration: duration,
       useNativeDriver: true,
-      easing:Easing.bounce
+      easing: Easing.bounce,
     }).start();
   }, [slideAnim, duration]);
   return (
@@ -38,7 +38,33 @@ export const SlideInView = ({ duration, ...props }) => {
         ...props.style,
         transform: [
           {
-            translateX:slideAnim
+            translateX: slideAnim,
+          },
+        ],
+      }}
+    >
+      {props.children}
+    </Animated.View>
+  );
+};
+
+export const SlideOutView = ({ duration, ...props }) => {
+  const slideOutAnim = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.timing(slideOutAnim, {
+      toValue: 15,
+      duration: duration,
+      useNativeDriver: true,
+      easing: Easing.circle,
+    }).start();
+  }, [slideOutAnim, duration]);
+  return (
+    <Animated.View
+      style={{
+        ...props.style,
+        transform: [
+          {
+            translateX: slideOutAnim,
           },
         ],
       }}

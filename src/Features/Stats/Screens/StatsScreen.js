@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import LottieView from "lottie-react-native";
 import { VictoryPie, VictoryLabel } from "victory-native";
+import { SlideOutView } from "../../../Components/Animations/FadeAnimation";
 import { StatsState } from "../../../Services/Stats/StatsStateProvider";
 export const StatsScreen = () => {
   const { data } = useContext(StatsState);
@@ -30,7 +31,9 @@ export const StatsScreen = () => {
       <View style={styles.headerView}>
         <Text style={styles.text}>Most ordered restaurants</Text>
       </View>
+      
       <View style={styles.piechartView}>
+      <SlideOutView duration={3500}>
         <VictoryPie
           data={newdata}
           labels={({ datum }) => datum.label}
@@ -40,14 +43,12 @@ export const StatsScreen = () => {
           cornerRadius={({ datum }) => datum.y * 5}
           innerRadius={({ datum }) => datum.y * 5}
           colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
-          animate={{
-            duration: 50000,
-            easing: "circleIn",
-          }}
           height={500}
           style={{ labels: { fill: "#fff", fontFamily: " Griffy_400Regular" } }}
         />
+        </SlideOutView>
       </View>
+      
       </ImageBackground>
   );
 };
@@ -67,6 +68,7 @@ const styles = StyleSheet.create({
   },
   piechartView: {
     flex: 1,
+    marginTop:15
   },
   noDataView: {
     height: 800,
