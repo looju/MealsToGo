@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import LottieView from "lottie-react-native";
 import { VictoryPie, VictoryLabel } from "victory-native";
 import { StatsState } from "../../../Services/Stats/StatsStateProvider";
@@ -13,8 +13,8 @@ export const StatsScreen = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      {data.length === 0 && (
+    <ImageBackground style={styles.container} source={require('../../../../assets/myrestaurant.jpg')} resizeMode={"cover"}>
+      {newdata.length === 0 && (
         <View style={styles.noDataView}>
           <LottieView
             source={require("../../../../assets/pie.json")}
@@ -32,7 +32,7 @@ export const StatsScreen = () => {
       </View>
       <View style={styles.piechartView}>
         <VictoryPie
-          data={data}
+          data={newdata}
           labels={({ datum }) => datum.label}
           labelComponent={<VictoryLabel angle={45} />}
           labelPosition={({ index }) => (index ? "centroid" : "startAngle")}
@@ -48,14 +48,13 @@ export const StatsScreen = () => {
           style={{ labels: { fill: "#fff", fontFamily: " Griffy_400Regular" } }}
         />
       </View>
-    </View>
+      </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#000",
+    flex: 1
   },
   headerView: {
     marginVertical: 30,

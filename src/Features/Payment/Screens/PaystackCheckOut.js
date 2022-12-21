@@ -5,7 +5,7 @@ import { PaymentState } from "../../../Services/Payment/PaymentStateProvider";
 import { StatsState } from "../../../Services/Stats/StatsStateProvider";
 export const PaystackCheckOut = ({ navigation, route }) => {
   const { price } = useContext(PaymentState);
-  const { data, addToData,setData } = useContext(StatsState);
+  const { data, addToData, setData } = useContext(StatsState);
   const { name } = route.params;
   return (
     <View style={{ flex: 1 }}>
@@ -27,7 +27,7 @@ export const PaystackCheckOut = ({ navigation, route }) => {
             [{ text: "OK" }]
           );
           navigation.goBack();
-          setData((data)=>[...data,{ x: 1, y:1, label: name }])
+          addToData(name);
           console.log(res);
         }}
         channels={["card", "ussd"]}

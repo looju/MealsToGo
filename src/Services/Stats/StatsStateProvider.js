@@ -6,22 +6,16 @@ export const StatsStateProvider = ({ children }) => {
   const [data, setData] = useState([]);
 
   const addToData = (name) => {
-    for (const i of data) {
-      let a = 1;
-      let b = 1;
-      if (i.x && i.y) {
-        const newData = data.push({ x: a++, y: b++, label: name });
-        setData((data)=>[...data,newData]);
-        console.log(data)
-      }
-      if (typeof label === "undefined") {
-        const newData = data.push({ x: a++, y: b++, label: name });
-        setData((data)=>[...data,newData]);
-      }
+    let a = 1;
+    let b = 1;
+    const newData = data.push([{ x: a++, y: b++, label: name }]);
+    setData(newData);
+
+    if (data.length === 0) {
+      const newData = data.push([{ x: a, y: b, label: name }]);
+      setData(newData);
     }
   };
-
-  
 
   return (
     <StatsState.Provider
