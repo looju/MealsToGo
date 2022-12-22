@@ -38,7 +38,7 @@ export const SettingsFavourites = () => {
                   right: 15,
                 }}
               >
-                <RestaurantInfoCard restaurant={favourites} />
+                <RestaurantInfoCard restaurant={item} />
               </View>
             </TouchableOpacity>
           );
