@@ -1,21 +1,18 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import LottieView from "lottie-react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { VictoryPie, VictoryLabel } from "victory-native";
 import { SlideOutView } from "../../../Components/Animations/FadeAnimation";
 import { StatsState } from "../../../Services/Stats/StatsStateProvider";
 export const StatsScreen = () => {
   const { data } = useContext(StatsState);
 
-  const newdata = [
-    { x: 1, y: 1, label: "one" },
-    { x: 2, y: 2, label: "two" },
-    { x: 3, y: 3, label: "three" },
-  ];
+ 
 
   return (
     <ImageBackground style={styles.container} source={require('../../../../assets/myrestaurant.jpg')} resizeMode={"cover"}>
-      {newdata.length === 0 && (
+      {data.length === 0 && (
         <View style={styles.noDataView}>
           <LottieView
             source={require("../../../../assets/pie.json")}
@@ -29,20 +26,20 @@ export const StatsScreen = () => {
         </View>
       )}
       <View style={styles.headerView}>
-        <Text style={styles.text}>Most ordered restaurants</Text>
+        <Text style={styles.text}>Last ordered restaurant</Text>
       </View>
       
       <View style={styles.piechartView}>
       <SlideOutView duration={3500}>
         <VictoryPie
-          data={newdata}
+          data={data}
           labels={({ datum }) => datum.label}
           labelComponent={<VictoryLabel angle={45} />}
           labelPosition={({ index }) => (index ? "centroid" : "startAngle")}
           labelPlacement={({ index }) => (index ? "parallel" : "vertical")}
           cornerRadius={({ datum }) => datum.y * 5}
           innerRadius={({ datum }) => datum.y * 5}
-          colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
+          colorScale={["tomato"]}
           height={500}
           style={{ labels: { fill: "#fff", fontFamily: " Griffy_400Regular" } }}
         />
