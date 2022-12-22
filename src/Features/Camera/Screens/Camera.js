@@ -9,7 +9,7 @@ import {
   Modal,
   Pressable,
 } from "react-native";
-import * as ImagePicker from 'expo-image-picker'
+import * as ImagePicker from "expo-image-picker";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { AuthenticationContext } from "../../../Services/Authentication/Authentication-context";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -54,44 +54,35 @@ export function CameraScreen({ navigation }) {
         </Modal>
       </View>
     );
-
-    //   <View style={styles.container}>
-    //   <Text style={{ textAlign: "center" }}>
-    //     MealsToGo need your permission to show the camera
-    //   </Text>
-    //   <Button onPress={requestPermission} title="grant permission" />
-    // </View>
   }
 
   const takePicture = async () => {
     if (cameraRef) {
       const photo = await cameraRef.current.takePictureAsync();
-      const photoValue = photo.uri;
-      console.log(photoValue);
       navigation.navigate("settings");
-      AsyncStorage.setItem(`${user.uid}-photo`, photoValue);
+      AsyncStorage.setItem(`${user.uid}-photo`, photo.uri);
     }
   };
 
-  const toggleCameraType=() =>{
-    setType(current => (current === CameraType.back ? CameraType.front : CameraType.back));
-  }
+  const toggleCameraType = () => {
+    setType((current) =>
+      current === CameraType.back ? CameraType.front : CameraType.back
+    );
+  };
 
-
-  const pickImage=async()=>{
+  const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
     });
-    if(!result.canceled){
-      const galleryPhoto=result.assets[0].uri
-      AsyncStorage.setItem(`${user.uid}-galleryphoto`,galleryPhoto );
-      navigation.goBack()
+    if (!result.canceled) {
+      AsyncStorage.setItem(`${user.uid}-galleryphoto`, result.assets[0].uri);
+      navigation.goBack();
     }
-  }
-  
+  };
+
   return (
     <View style={styles.container}>
       <Camera
@@ -200,8 +191,8 @@ const styles = StyleSheet.create({
     top: "85%",
     left: "45%",
   },
-  galleryButtonContainer:{
+  galleryButtonContainer: {
     top: "80%",
     left: "70%",
-  }
+  },
 });

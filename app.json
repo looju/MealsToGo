@@ -11,7 +11,7 @@
       "resizeMode": "cover",
       "backgroundColor": "#000"
     },
-    "scheme":"https://expo.dev",
+    "scheme": "https://expo.dev",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -25,10 +25,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.loju.MealsToGo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "15da3279-92c0-401b-bd6f-b8d1af6a5b4b"
+      }
     }
   }
 }

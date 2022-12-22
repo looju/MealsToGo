@@ -6,25 +6,30 @@ import {
   SafeAreaView,
   Text,
   TouchableOpacity,
-  Image,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FadeInView } from "../../../Components/Animations/FadeAnimation";
 import { AuthenticationContext } from "../../../Services/Authentication/Authentication-context";
 
-
-export const SettingsScreen = ({ navigation, route }) => {
+export const SettingsScreen = ({ navigation }) => {
   const { onLogOut, user } = useContext(AuthenticationContext);
   const [photo, setPhoto] = useState(null);
 
   const getUserPicture = async (user) => {
     const profilePhoto = AsyncStorage.getItem(`${user.uid}-photo`);
-    setPhoto(profilePhoto);
+    if (profilePhoto !== null) {
+      setPhoto(profilePhoto);
+    }
   };
 
-  const getUserGalleryPicture=async (user) => {
-    const galleryProfilePhoto = AsyncStorage.getItem(`${user.uid}-galleryphoto`);
-    setPhoto(galleryProfilePhoto);
+  const getUserGalleryPicture = async (user) => {
+    const galleryProfilePhoto = AsyncStorage.getItem(
+      `${user.uid}-galleryphoto`
+    );
+    if(galleryProfilePhoto !==null) {
+      setPhoto(galleryProfilePhoto);
+    }
+  
   };
 
   useEffect(() => {
@@ -35,25 +40,23 @@ export const SettingsScreen = ({ navigation, route }) => {
     getUserGalleryPicture(user);
   }, [user]);
 
-
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.avatarView}>
         <FadeInView duration={2500}>
           <TouchableOpacity onPress={() => navigation.navigate("Camera")}>
             {photo && (
-                 <Avatar.Image
-                 size={180}
-                 source={{ uri: photo }}
-                 backgroundColor="#A020F0"
-               />
+              <Avatar.Image
+                size={180}
+                source={{ uri: photo }}
+                backgroundColor="#A020F0"
+              />
             )}
             {!photo && <Avatar.Icon size={200} icon="human" />}
           </TouchableOpacity>
         </FadeInView>
         <View style={styles.emailView}>
-          <Text style={{ color: "#fff" }}>Email@email.com</Text>
+          <Text style={{ color: "#fff" }}>{user.email}</Text>
         </View>
       </View>
       <View>

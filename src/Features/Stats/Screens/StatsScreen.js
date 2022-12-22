@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import LottieView from "lottie-react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { VictoryPie, VictoryLabel } from "victory-native";
 import { SlideOutView } from "../../../Components/Animations/FadeAnimation";
 import { StatsState } from "../../../Services/Stats/StatsStateProvider";
@@ -34,7 +33,7 @@ export const StatsScreen = () => {
         <VictoryPie
           data={data}
           labels={({ datum }) => datum.label}
-          labelComponent={<VictoryLabel angle={45} />}
+          labelComponent={<VictoryLabel angle={360} />}
           labelPosition={({ index }) => (index ? "centroid" : "startAngle")}
           labelPlacement={({ index }) => (index ? "parallel" : "vertical")}
           cornerRadius={({ datum }) => datum.y * 5}
