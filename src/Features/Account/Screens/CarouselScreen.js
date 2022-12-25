@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, ImageBackground } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import AppIntroSlider from "react-native-app-intro-slider";
 
@@ -30,17 +30,7 @@ export const CarouselScreen = ({ navigation }) => {
 
   const renderItem = ({ item }) => {
     return (
-      <View style={[
-        styles.container,
-        { backgroundColor: item.backgroundColor }
-        ]}>
-        <View style={styles.image}>
-          <Image
-            source={item.image}
-            resizeMode="cover"
-            style={{ width: 350, height: 350 }}
-          />
-        </View>
+      <ImageBackground style={[styles.container]} source={item.image}>
         <View style={styles.title}>
           <Text
             style={{
@@ -57,7 +47,7 @@ export const CarouselScreen = ({ navigation }) => {
             {item.text}
           </Text>
         </View>
-      </View>
+      </ImageBackground>
     );
   };
 
@@ -103,22 +93,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   container: {
-    flex: 1
+    flex: 1,
   },
   title: {
-    bottom: 450,
+    marginTop: 50,
     width: 300,
     heigth: 100,
   },
   text: {
     width: 400,
     maxHeight: 200,
-    paddingTop: 10,
-    marginTop: 10,
+    top: 500,
   },
   image: {
-    width: 350,
-    height: 350,
+    flex: 1,
     left: 20,
     marginTop: 200,
   },

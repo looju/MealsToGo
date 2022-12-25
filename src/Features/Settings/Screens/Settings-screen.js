@@ -26,10 +26,9 @@ export const SettingsScreen = ({ navigation }) => {
     const galleryProfilePhoto = AsyncStorage.getItem(
       `${user.uid}-galleryphoto`
     );
-    if(galleryProfilePhoto !==null) {
+    if (galleryProfilePhoto !== null) {
       setPhoto(galleryProfilePhoto);
     }
-  
   };
 
   useEffect(() => {
