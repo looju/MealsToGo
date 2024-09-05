@@ -43,16 +43,18 @@ $ eas build --platform ios
 
 </div>
 <div>
-<img src="https://github.com/user-attachments/assets/1e255637-e0c9-4d39-9867-e58f56293deb" width="400" /> <img src="https://github.com/user-attachments/assets/9c47ea3b-3800-4607-b36b-c5d407064ec8" width="400"/>
+<img src="https://github.com/user-attachments/assets/27178a86-de79-42ab-aa95-58ac290e58ce" width="400" /> <img src="https://github.com/user-attachments/assets/e943449c-cb74-4cc4-a4fe-8ac221ac6349" width="400"/>
 
 </div>
 <div>
-<img src="https://github.com/user-attachments/assets/2a800322-00ad-4966-8bb5-c2e4a410aec0" width="400"/> <img src="https://github.com/user-attachments/assets/6818e97c-5ad1-4b27-9de9-d8774e01dc2b" width="400"/> 
+<img src="https://github.com/user-attachments/assets/ae9c169a-7c48-4284-bf75-5c91aa463b46" width="400"/> <img src="https://github.com/user-attachments/assets/86a01668-daae-486f-a5e4-bf6e6f38df15" width="400"/> 
 
 </div>
 <div>
-<img src="https://github.com/user-attachments/assets/c6c0ec37-ce1e-4044-a235-1d16936b62a3" width="400"/> 
+<img src="https://github.com/user-attachments/assets/1ef8fb41-f91d-43c5-9730-066e1576902b" width="400"/> 
 </div>
+
+
 
 
 
